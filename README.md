@@ -44,16 +44,19 @@ Steps taken at local environment:
     Note: Laravel 9.0 requires PHP 8.0 or above
 
 > Installed laravel/laravel latest version to develop APIs (https://laravel.com/docs/9.x/installation)
-    composer create-project laravel/laravel loan-rest-apis
+    composer create-project laravel/laravel loan-rest-api
 
     Laravel/laravel installed at loan-rest-api folder and which should be configured as local.loan-rest-api.com
 
     - cd into the directory loan-rest-api
+    
     - composer update
+    
     - set
         DB_DATABASE=loanrestapi
         DB_USERNAME=root
         DB_PASSWORD=
+	
     - serve the project locally, we can also use the Laravel Homestead (https://laravel.com/docs/9.x/homestead) virtual machine, Laravel Valet, or the built-in PHP development server i.e. WAMMP, XAMMP, Laragon 
     php -S localhost:8000 -t public
 
@@ -62,24 +65,37 @@ Steps taken at local environment:
 > Develop the authentication system and database for the Loan APIs
     i.e. Register, Login, Loan request, Loan approval, Loan details and Loan repayment
     - users, password tables comes by default with installation
-	
+
+
 > Laravel Sanctum used by default for secure, fast, lightweight authentication system for single-page applications (SPA), mobile applications, and simple, token-based APIs.
+
     - php artisan make:migration create_loans_table --create=loans
+    
     - php artisan make:migration create_weekly_repayments_table --create=weekly_repayments
+    
     - php artisan migrate
+    
     - php artisan cache:clear
+    
     - php artisan config:cache
+
 
 > Create Models, Controllers, Requests, Responses for Loans, WeeklyRepayments
 
 > Run below
-    - php artisan migrate:reset
-    - php artisan migrate
-    - composer update
-    - composer dump-autoload
+
+   	- php artisan migrate:reset
+
+	- php artisan migrate
+    
+    	- composer update
+    
+    	- composer dump-autoload
+	
 	
 > Create required routes
-    - php artisan route:list
+
+	- php artisan route:list
 
     POST            api/loan-repayment ............................. Api\WeeklyRepaymentController@loanRepayment
     POST            api/loan-status ........................................ Api\LoanController@changeLoanStatus
@@ -95,14 +111,23 @@ Steps taken at local environment:
     POST            api/register ........................................... Api\AuthUserController@registerUser
   
 > Test the Application flow with various scenarios and/or required end points / APIs
-    - /                         >                           - GET
-    - /api/register             > User Register             - POST
-    - /api/login                > User Login                - POST
-    - /api/loans                > Create a loan request     - POST
-    - /api/loans                > View loan details         - GET
-    - /api/loan-status          > Loan approval             - POST
-    - /api/loan-repayment       > Loan repayment            - POST
-    - /api/logout               > User Logout               - POST
+
+    	- /                         >                           - GET
+
+	- /api/register             > User Register             - POST
+    
+    	- /api/login                > User Login                - POST
+    
+    	- /api/loans                > Create a loan request     - POST
+    
+    	- /api/loans                > View loan details         - GET
+    
+    	- /api/loan-status          > Loan approval             - POST
+    
+    	- /api/loan-repayment       > Loan repayment            - POST
+    
+    	- /api/logout               > User Logout               - POST
+
 
 > Testing using POSTMAN. Please follow the below process
 
