@@ -44,9 +44,9 @@ Steps taken at local environment:
     Note: Laravel 9.0 requires PHP 8.0 or above
 
 > Installed laravel/laravel latest version to develop APIs (https://laravel.com/docs/9.x/installation)
-    composer create-project laravel/lumen loan-trans-rest-apis
+    composer create-project laravel/laravel loan-rest-apis
 
-    Laravel/laravel installed at loan-trans-rest-apis folder and which should be configured as local.loan-trans-rest-apis.com
+    Laravel/laravel installed at loan-rest-api folder and which should be configured as local.loan-rest-api.com
 
     - cd into the directory loan-rest-api
     - composer update
@@ -122,7 +122,7 @@ Steps taken at local environment:
     Or set the Auth
     --
 
-    Step 3: Apply loan - /api/loans
+    Step 3: Apply loan (POST method) - /api/loans
         Required fields are - loan_amount and loan_term, term should be in weeks
 	
     Step 4: Approve the loan by Admin - /api/loan-status
@@ -132,4 +132,7 @@ Steps taken at local environment:
     Step 5: Loan Repayment - /api/loan-repayment
         Required fields are - loan_id, amount and loan amount should be same as weekly emi amount
 
-    Step 6: Logout user - /api/logout
+    Step 6: Apply loan (GET method) - /api/loans 
+        Required fields are - not required, this would retrieves the user's loan details
+
+    Step 7: Logout user - /api/logout
